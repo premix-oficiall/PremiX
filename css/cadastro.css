@@ -1,0 +1,390 @@
+/* Reset e configurações básicas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: #0f0f0f;
+  color: #f2f2f2;
+  line-height: 1.6;
+}
+
+/* Layout principal */
+.main-content {
+  padding-top: 80px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Texto hero */
+.hero-text {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-text h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #f2f2f2;
+  margin-bottom: 20px;
+}
+
+/* Linha do Tempo de Progresso */
+.progress-timeline {
+  background-color: #0f0f0f;
+  padding: 30px 0;
+  margin-bottom: 40px;
+}
+
+.timeline-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #333;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  border: 3px solid #333;
+  transition: all 0.3s ease;
+}
+
+.step-label {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #888;
+  text-align: center;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.timeline-line {
+  flex: 1;
+  height: 3px;
+  background-color: #333;
+  margin: 0 20px;
+  position: relative;
+  top: -15px;
+  transition: background-color 0.3s ease;
+}
+
+/* Estados da linha do tempo */
+.timeline-step.active .step-circle {
+  background-color: #fbca48;
+  color: #000;
+  border-color: #fbca48;
+  box-shadow: 0 0 10px rgba(251, 202, 72, 0.5);
+}
+
+.timeline-step.active .step-label {
+  color: #fbca48;
+}
+
+.timeline-step.completed .step-circle {
+  background-color: #4caf50;
+  color: #fff;
+  border-color: #4caf50;
+}
+
+.timeline-step.completed .step-label {
+  color: #4caf50;
+}
+
+.timeline-line.completed {
+  background-color: #4caf50;
+}
+
+.timeline-line.active {
+  background: linear-gradient(to right, #4caf50 50%, #333 50%);
+}
+
+/* Container do formulário */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 20px 40px;
+  flex: 1;
+}
+
+.form-card {
+  background-color: rgba(0, 0, 0, 0.1);;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  overflow: hidden;
+}
+
+/* Cabeçalho do formulário */
+.form-header {
+  background: linear-gradient(135deg, #fbc531, #fbc531);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.form-header h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #000;
+}
+
+.form-header p {
+  font-size: 16px;
+  opacity: 0.9;
+  color: #000;
+}
+
+/* Conteúdo do formulário */
+.step-content {
+  padding: 40px 30px;
+}
+
+/* Grupos de formulário */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #e1e1e1;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #fbca48;
+  box-shadow: 0 0 0 3px rgba(251, 202, 72, 0.1);
+}
+
+.form-group small {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Botões do formulário */
+.form-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e1e1e1;
+}
+
+.btn-next, .btn-prev, .btn-submit {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.btn-next, .btn-submit {
+  background-color: #fbca48;
+  color: #000;
+}
+
+.btn-next:hover, .btn-submit:hover {
+  background-color: #e6b43f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(251, 202, 72, 0.3);
+}
+
+.btn-prev {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-prev:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+/* Cards de preços */
+.pricing-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.pricing-card {
+  position: relative;
+}
+
+.pricing-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.pricing-label {
+  display: block;
+  padding: 20px;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+.pricing-label:hover {
+  border-color: #fbca48;
+  background-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card input[type="radio"]:checked + .pricing-label {
+  border-color: #fbca48;
+  background-color: #fff8e1;
+  box-shadow: 0 0 15px rgba(251, 202, 72, 0.3);
+}
+
+.plan-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.plan-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fbca48;
+  margin-bottom: 5px;
+}
+
+.plan-description {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .timeline-container {
+    max-width: 400px;
+  }
+  
+  .step-circle {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  
+  .step-label {
+    font-size: 12px;
+  }
+  
+  .timeline-line {
+    margin: 0 10px;
+  }
+  
+  .form-card {
+    margin: 0 10px;
+  }
+  
+  .form-header {
+    padding: 20px;
+  }
+  
+  .form-header h2 {
+    font-size: 24px;
+  }
+  
+  .step-content {
+    padding: 30px 20px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .form-buttons {
+    flex-direction: column;
+  }
+  
+  .pricing-options {
+    gap: 10px;
+  }
+  
+  .pricing-label {
+    padding: 15px;
+  }
+  
+  .plan-name {
+    font-size: 16px;
+  }
+  
+  .plan-price {
+    font-size: 20px;
+  }
+}
+
+/* Estados de erro */
+.form-group input.error,
+.form-group select.error {
+  border-color: #f44336;
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
